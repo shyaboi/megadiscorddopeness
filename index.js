@@ -1,24 +1,24 @@
 "use strict";
-
+const token = "NzA3NDUwMTk3NDQxMjQ5MzAy.XrJEjQ.P1tAR3ICq0NLvLlbcfEgn2Kcn9A";
 const Discord = require("discord.js");
-const { Client, MessageAttachment } = require("discord.js");
+const { Client, MessageAttachment, MessageEmbed } = require("discord.js");
 
 const client = new Discord.Client();
 
+// robot
 client.on("ready", () => {
   console.log("bot online");
-  client.channels.cache
-    .find((x) => x.name === "test")
-    .send("Hi y'all. Server online and ready to kill");
-  const attachment = new MessageAttachment(
-    "https://i.ibb.co/q0WZ7KP/download.jpg"
-  );
-  client.channels.cache.find((x) => x.name === "test").send(attachment);
+  const embed = new MessageEmbed()
+    .setImage("https://i.ibb.co/q0WZ7KP/download.jpg")
+    .setTitle("RoButt Online! ( ͡° ͜ʖ ͡°)")
+    .setDescription("Hi y'all. Operational and ready to kill")
+    .setColor(0xff0000);
+  client.channels.cache.find((x) => x.name === "test").send(embed);
 });
 
-client.on("message", (msg) => {
-  console.log(msg);
-});
+// client.on("message", (msg) => {
+//   console.log(msg);
+// });
 
 // Fs in the chat
 client.on("message", (message) => {
@@ -30,11 +30,14 @@ client.on("message", (message) => {
     // Send the attachment in the message channel
     message.channel.send(attachment);
   }
-});-
-
-// setInterval(() => {
-//     client.on('message', message => {
-//         message.channel.send('Shyaboi!');
-//     })
-// }, 1000);
+});
+-client.on("message", (message) => {
+   let time = Math.floor(Math.random()* 10000);
+    //   once a day milli 86400000
+  setInterval(() => {
+    message.channel.send("Shyaboi!");
+    console.log('msg sent')
+    console.log(time)
+  }, time)
+});
 client.login(token);
