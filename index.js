@@ -1,5 +1,5 @@
 "use strict";
-const token = "NzA3NDUwMTk3NDQxMjQ5MzAy.XrJEjQ.P1tAR3ICq0NLvLlbcfEgn2Kcn9A";
+const token = "NzA3NDUwMTk3NDQxMjQ5MzAy.XrJgzg.LAUs10XrRcowAoRkrSa7KY3e4C4";
 const Discord = require("discord.js");
 const { Client, MessageAttachment, MessageEmbed } = require("discord.js");
 
