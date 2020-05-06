@@ -1,10 +1,40 @@
-const Discord = require('discord.js')
-const token = 'NzA3NDUwMTk3NDQxMjQ5MzAy.XrI_0A.9rVXjwdF6Ypbl_YuLysC9Wi7Cq8'
+"use strict";
+
+const Discord = require("discord.js");
+const { Client, MessageAttachment } = require("discord.js");
 
 const client = new Discord.Client();
 
-client.on('ready', () => {
-    console.log('bot connected')
+client.on("ready", () => {
+  console.log("bot online");
+  client.channels.cache
+    .find((x) => x.name === "test")
+    .send("Hi y'all. Server online and ready to kill");
+  const attachment = new MessageAttachment(
+    "https://i.ibb.co/q0WZ7KP/download.jpg"
+  );
+  client.channels.cache.find((x) => x.name === "test").send(attachment);
 });
 
-client.login(token)
+client.on("message", (msg) => {
+  console.log(msg);
+});
+
+// Fs in the chat
+client.on("message", (message) => {
+  if (message.content === "f") {
+    // Create the attachment using MessageAttachment
+    const attachment = new MessageAttachment(
+      "https://pressftopayrespects.org/img/sharetw.png"
+    );
+    // Send the attachment in the message channel
+    message.channel.send(attachment);
+  }
+});-
+
+// setInterval(() => {
+//     client.on('message', message => {
+//         message.channel.send('Shyaboi!');
+//     })
+// }, 1000);
+client.login(token);
