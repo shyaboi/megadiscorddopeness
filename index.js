@@ -1,9 +1,10 @@
 "use strict";
-const token = "NzA3NDUwMTk3NDQxMjQ5MzAy.XrJjHA.-lqa3C_WbIp7C5B0BpwTro2cvRE";
 const Discord = require("discord.js");
 const { Client, MessageAttachment, MessageEmbed } = require("discord.js");
 
 const client = new Discord.Client();
+
+const memeArr=['https://i.ibb.co/pfh9SRg/bff.png']
 
 // robot
 client.on("ready", () => {
@@ -34,11 +35,11 @@ client.on("message", (message) => {
   }
 });
 client.on("message", (message) => {
-  let time = Math.floor(Math.random() * 864000);
+  let time = Math.floor(Math.random() * 20000);
   //  a day milli                     86400000
   console.log(time)
   setInterval(() => {
-    const meme = new MessageAttachment("https://i.kym-cdn.com/photos/images/newsfeed/001/168/682/c2f.jpg");
+    const meme = new MessageAttachment(memeArr[0]);
     // Send the attachment in the message channel
     message.channel.send(meme);
     console.log(meme)
